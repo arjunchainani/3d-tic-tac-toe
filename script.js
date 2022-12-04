@@ -20,22 +20,19 @@ colorTexture.minFilter = THREE.NearestFilter;
 colorTexture.magFilter = THREE.NearestFilter;
 
 // Cube
-const geometry = new THREE.BufferGeometry();
-const vertices = new Float32Array([
-    -10.0, -10.0, 0.0, 
-    10.0, -10.0, 0.0,
-    10.0, 10.0, 0.0,
-])
+const geometry = new THREE.PlaneGeometry(10, 10);
+const material = new THREE.MeshLambertMaterial( { color: 0xF78F13, side: THREE.DoubleSide } );
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
-const material = new THREE.MeshLambertMaterial( { color: 0xF78F13 } );
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+cube.rotation.x = 5;
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 camera.position.x = 0;
 camera.position.y = 0;
 camera.position.z = 3;
+camera.rotation.x = 0;
 scene.add(camera);
 
 // Lighting
@@ -74,9 +71,9 @@ window.addEventListener('resize', function() {
 function animate() {
     requestAnimationFrame(animate);
 
-    sphere.rotation.x += 0.01;
-    sphere.rotation.y += 0.01;
-    sphere.rotation.z += 0.01;
+    // cube.rotation.x += 0.01;
+    // cube.rotation.y += 0.01;
+    // cube.rotation.z += 0.01;
 
     renderer.render(scene, camera);
 }
