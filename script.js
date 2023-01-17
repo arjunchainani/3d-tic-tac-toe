@@ -22,10 +22,10 @@ colorTexture.magFilter = THREE.NearestFilter;
 // Cube
 const geometry = new THREE.PlaneGeometry(10, 10);
 const material = new THREE.MeshLambertMaterial( { color: 0xF78F13, side: THREE.DoubleSide } );
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+const plane = new THREE.Mesh(geometry, material);
+scene.add(plane);
 
-cube.rotation.x = 5;
+plane.rotation.x = 5;
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
